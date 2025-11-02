@@ -8,7 +8,9 @@ export default defineConfig({
     logOverride: { "this-is-undefined-in-esm": "silent" },
   },
   build: {
-    target: "esnext",
+    rollupOptions: {
+      external: ["fs", "path", "os", "crypto", "stream", "buffer", "util"],
+    },
   },
   // 🚫 Disable strict type checking in build
   define: {
